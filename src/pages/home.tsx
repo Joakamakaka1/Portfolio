@@ -40,7 +40,10 @@ const Home = () => {
   const totalDelay = text.length * 0.1 + 0.6 + 1.5;
 
   return (
-    <main className="flex flex-col w-full fixed inset-0 bg-[#181a1b] text-white">
+    <main
+      className="flex flex-col w-full min-h-screen bg-[#181a1b] text-white"
+      style={{ minHeight: "100dvh" }}
+    >
       <div className="flex-1 flex justify-center items-center">
         <div className="flex flex-col gap-2">
           <motion.section

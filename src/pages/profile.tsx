@@ -73,7 +73,8 @@ const Profile = () => {
 
   return (
     <motion.main
-      className="w-full flex flex-col fixed inset-0 text-gray-100"
+      className="w-full min-h-screen flex flex-col text-gray-100"
+      style={{ minHeight: "100dvh" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -115,7 +116,7 @@ const Profile = () => {
         </nav>
       </header>
 
-      <section className="flex flex-col md:flex-row flex-1 px-4 md:px-10 py-4 md:py-6 gap-4 md:gap-6 overflow-hidden">
+      <section className="flex flex-col md:flex-row flex-1 px-4 md:px-10 py-4 md:py-6 gap-4 md:gap-6 overflow-hidden min-h-0">
         <aside className="flex flex-row md:flex-col gap-1 w-full md:w-80 shrink-0 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
           {options.map((opt, index) => renderOptions(opt, index))}
         </aside>
