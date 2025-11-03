@@ -75,7 +75,8 @@ const Projects = () => {
 
   return (
     <motion.main
-      className="w-full flex flex-col text-gray-100 fixed inset-0"
+      className="w-full min-h-screen flex flex-col text-gray-100"
+      style={{ minHeight: "100dvh" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -119,159 +120,167 @@ const Projects = () => {
         </nav>
       </header>
 
-      <section className="flex flex-col grow max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10">
-        <article className="flex justify-center items-center mb-4 md:mb-6">
-          <div className="flex items-center gap-2 md:gap-6">
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <ChevronLeft
-                className="w-12 h-12 md:w-20 md:h-20 cursor-pointer hover:opacity-70 transition-opacity"
-                onClick={prevProject}
-              />
-            </motion.div>
-
-            {/* Desktop carousel */}
-            <div
-              className="hidden md:flex items-center justify-center relative"
-              style={{ width: "1230px", height: "400px" }}
-            >
-              {proyectos.map((proyecto, index) => {
-                const isCurrent = index === currentIndex;
-                const baseWidth = 256;
-                const largeWidth = 384;
-                const gap = 26;
-
-                let xPosition = 0;
-                for (let i = 0; i < index; i++) {
-                  xPosition +=
-                    (i === currentIndex ? largeWidth : baseWidth) + gap;
-                }
-
-                return (
-                  <motion.div
-                    key={proyecto.id}
-                    animate={{
-                      width: isCurrent ? largeWidth : baseWidth,
-                      height: isCurrent ? largeWidth : baseWidth,
-                      opacity: isCurrent ? 1 : 0.6,
-                      x: xPosition,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      ease: "easeInOut",
-                    }}
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                    }}
-                    className="cursor-pointer"
-                    onClick={() => setCurrentIndex(index)}
-                  >
-                    <img
-                      src={proyecto.foto}
-                      alt={`proyecto ${index + 1}`}
-                      className="w-full h-full rounded-2xl object-cover"
-                    />
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Mobile carousel - single image */}
-            <div className="flex md:hidden items-center justify-center">
+      <section className="flex-1 overflow-y-auto px-4 md:px-6 py-6 md:py-10 min-h-0">
+        <div className="flex flex-col max-w-7xl mx-auto">
+          <article className="flex justify-center items-center mb-4 md:mb-6">
+            <div className="flex items-center gap-2 md:gap-6">
               <motion.div
-                key={currentProject.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="w-64 h-64"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <img
-                  src={currentProject.foto}
-                  alt={`proyecto ${currentIndex + 1}`}
-                  className="w-full h-full rounded-2xl object-cover"
+                <ChevronLeft
+                  className="w-12 h-12 md:w-20 md:h-20 cursor-pointer hover:opacity-70 transition-opacity"
+                  onClick={prevProject}
+                />
+              </motion.div>
+
+              {/* Desktop carousel */}
+              <div
+                className="hidden md:flex items-center justify-center relative"
+                style={{ width: "1230px", height: "400px" }}
+              >
+                {proyectos.map((proyecto, index) => {
+                  const isCurrent = index === currentIndex;
+                  const baseWidth = 256;
+                  const largeWidth = 384;
+                  const gap = 26;
+
+                  let xPosition = 0;
+                  for (let i = 0; i < index; i++) {
+                    xPosition +=
+                      (i === currentIndex ? largeWidth : baseWidth) + gap;
+                  }
+
+                  return (
+                    <motion.div
+                      key={proyecto.id}
+                      animate={{
+                        width: isCurrent ? largeWidth : baseWidth,
+                        height: isCurrent ? largeWidth : baseWidth,
+                        opacity: isCurrent ? 1 : 0.6,
+                        x: xPosition,
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: "easeInOut",
+                      }}
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                      }}
+                      className="cursor-pointer"
+                      onClick={() => setCurrentIndex(index)}
+                    >
+                      <img
+                        src={proyecto.foto}
+                        alt={`proyecto ${index + 1}`}
+                        className="w-full h-full rounded-2xl object-cover"
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Mobile carousel - single image */}
+              <div className="flex md:hidden items-center justify-center">
+                <motion.div
+                  key={currentProject.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-64 h-64"
+                >
+                  <img
+                    src={currentProject.foto}
+                    alt={`proyecto ${currentIndex + 1}`}
+                    className="w-full h-full rounded-2xl object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ChevronRight
+                  className="w-12 h-12 md:w-20 md:h-20 cursor-pointer hover:opacity-70 transition-opacity"
+                  onClick={nextProject}
                 />
               </motion.div>
             </div>
+          </article>
 
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <ChevronRight
-                className="w-12 h-12 md:w-20 md:h-20 cursor-pointer hover:opacity-70 transition-opacity"
-                onClick={nextProject}
-              />
-            </motion.div>
-          </div>
-        </article>
-
-        <AnimatePresence mode="wait">
-          <motion.article
-            key={currentProject.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col md:flex-row justify-between items-start mt-6 md:mt-10 gap-6"
-          >
-            <div className="flex items-start gap-3 md:gap-6 w-full md:w-auto max-w-64 md:max-w-none mx-auto md:mx-0">
-              <motion.img
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                src={currentProject.esrb}
-                alt="Foto proyecto"
-                className="w-20 h-28 md:w-30 md:h-42 object-cover shrink-0"
-              />
-              <div>
+          <AnimatePresence mode="wait">
+            <motion.article
+              key={currentProject.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col md:flex-row justify-between items-start mt-6 md:mt-10 gap-6"
+            >
+              <div className="flex items-start gap-3 md:gap-6 w-full md:w-auto max-w-64 md:max-w-none mx-auto md:mx-0">
+                <motion.img
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 }}
+                  src={currentProject.esrb}
+                  alt="Foto proyecto"
+                  className="w-20 h-28 md:w-30 md:h-42 object-cover shrink-0"
+                />
+                <div>
+                  <motion.h1
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15 }}
+                    className="text-2xl md:text-4xl font-mont"
+                  >
+                    {currentProject.nombre}
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-sm md:text-lg font-mont-light font-semibold mt-1"
+                  >
+                    {currentProject.descripcion}
+                  </motion.p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 md:gap-3 w-full md:w-auto max-w-64 md:max-w-none mx-auto md:mx-0">
                 <motion.h1
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 }}
                   className="text-2xl md:text-4xl font-mont"
                 >
-                  {currentProject.nombre}
+                  Technologies
                 </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-sm md:text-lg font-mont-light font-semibold mt-1"
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.25 }}
+                  className="flex gap-3"
                 >
-                  {currentProject.descripcion}
-                </motion.p>
+                  {currentProject.tecnologias.map((tech, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                    >
+                      <tech.Component
+                        size={window.innerWidth < 768 ? "32" : "40"}
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
-            </div>
-            <div className="flex flex-col gap-2 md:gap-3 w-full md:w-auto max-w-64 md:max-w-none mx-auto md:mx-0">
-              <motion.h1
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 }}
-                className="text-2xl md:text-4xl font-mont"
-              >
-                Technologies
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.25 }}
-                className="flex gap-3"
-              >
-                {currentProject.tecnologias.map((tech, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                  >
-                    <tech.Component
-                      size={window.innerWidth < 768 ? "32" : "40"}
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.article>
-        </AnimatePresence>
+            </motion.article>
+          </AnimatePresence>
+        </div>
       </section>
 
       <footer className="flex justify-between items-center px-4 md:px-6 py-3 md:py-4 backdrop-blur-md shrink-0">
