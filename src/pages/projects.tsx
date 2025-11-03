@@ -75,7 +75,7 @@ const Projects = () => {
 
   return (
     <motion.main
-      className="w-full h-screen flex flex-col text-gray-100"
+      className="w-full h-screen flex flex-col text-gray-100 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -12,6 +12,7 @@ const SelectLanguage = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(0);
   const navigate = useNavigate();
 
+  const disabledLanguages = [7, 8, 9];
   const languages = [
     "Spanish",
     "English",
@@ -49,24 +50,38 @@ const SelectLanguage = () => {
 
   const renderLanguageItem = (lang: string, index: number) => {
     const isSelected = selectedLanguage === index;
+    const isDisabled = disabledLanguages.includes(index);
+
     return (
       <div
         key={index}
-        onClick={() => handleLanguageClick(index)}
-        className={`h-16 md:h-20 w-full flex items-center pl-2 md:pl-2 cursor-pointer transition-all ${
-          isSelected
+        onClick={() => !isDisabled && handleLanguageClick(index)}
+        className={`
+        h-16 md:h-20 w-full flex items-center pl-2 md:pl-2 
+        cursor-${isDisabled ? "not-allowed" : "pointer"} 
+        transition-all rounded-md 
+        ${
+          isSelected && !isDisabled
             ? "border-4 border-blue-400"
             : "border-4 border-transparent"
-        } hover:bg-gray-100`}
+        } 
+        ${isDisabled ? "opacity-50 bg-gray-200" : "hover:bg-gray-100"}
+      `}
       >
-        <h1 className="text-xl md:text-3xl font-mont">{lang}</h1>
+        <h1
+          className={`text-xl md:text-3xl font-mont ${
+            isDisabled ? "text-gray-600" : ""
+          }`}
+        >
+          {lang}
+        </h1>
       </div>
     );
   };
 
   return (
-    <main className="w-full min-h-screen flex flex-col">
-      <header className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-500">
+    <main className="w-full h-screen flex flex-col">
+      <header className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-500 shrink-0">
         <nav className="flex items-center gap-2 md:gap-3">
           <img
             src="imgs/Icono.webp"
