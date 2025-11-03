@@ -80,7 +80,7 @@ const SelectLanguage = () => {
   };
 
   return (
-    <main className="w-full h-screen flex flex-col">
+    <main className="w-full flex flex-col fixed inset-0">
       <header className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-500 shrink-0">
         <nav className="flex items-center gap-2 md:gap-3">
           <img

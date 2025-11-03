@@ -40,7 +40,7 @@ const Home = () => {
   const totalDelay = text.length * 0.1 + 0.6 + 1.5;
 
   return (
-    <main className="flex flex-col w-full h-screen bg-[#181a1b] text-white">
+    <main className="flex flex-col w-full fixed inset-0 bg-[#181a1b] text-white">
       <div className="flex-1 flex justify-center items-center">
         <div className="flex flex-col gap-2">
           <motion.section
@@ -84,7 +84,6 @@ const Home = () => {
           </motion.p>
         </div>
       </div>
-
       <footer className="flex justify-end items-center px-6 py-4 shrink-0">
         <motion.nav
           className="flex items-center gap-6"
