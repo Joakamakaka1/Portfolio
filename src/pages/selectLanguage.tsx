@@ -81,10 +81,10 @@ const SelectLanguage = () => {
 
   return (
     <main
-      className="w-full h-screen flex flex-col"
-      style={{ minHeight: "100dvh" }}
+      className="w-full h-screen flex flex-col overflow-hidden"
+      style={{ height: "100dvh" }}
     >
-      <header className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-500 bg-white shrink-0">
+      <header className="flex items-start px-4 md:px-6 py-3 md:py-4 backdrop-blur-md shrink-0 border-b border-gray-400">
         <nav className="flex items-center gap-2 md:gap-3">
           <img
             src="imgs/Icono.webp"
@@ -103,7 +103,6 @@ const SelectLanguage = () => {
             .slice(0, 5)
             .map((lang, idx) => renderLanguageItem(lang, idx))}
         </article>
-
         <article className="flex flex-col gap-2 md:gap-4 w-full md:w-1/2">
           {languages
             .slice(5)
