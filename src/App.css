@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* @font-face {
+  font-family: "BigBesty";
+  src: url("/fonts/Bigbesty.ttf") format("truetype");
+} */
+
+@font-face {
+  font-family: "Mont-HeavyDEMO";
+  src: url("/fonts/Mont-HeavyDEMO.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Mont-ExtraLightDEMO";
+  src: url("/fonts/Mont-ExtraLightDEMO.otf") format("truetype");
+}
+
+/* .font-bigbesty {
+  font-family: "BigBesty", sans-serif !important;
+} */
+
+.font-mont {
+  font-family: "Mont-HeavyDEMO", sans-serif !important;
+}
+
+.font-mont-light {
+  font-family: "Mont-ExtraLightDEMO", sans-serif !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* * {
+  cursor: none !important;
+} */
