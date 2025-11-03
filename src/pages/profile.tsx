@@ -97,7 +97,7 @@ const Profile = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           />
-          <h1 className="text-xl md:text-3xl font-mont">Mi portfolio</h1>
+          <h1 className="text-xl md:text-3xl font-mont">Joaquin's profile</h1>
         </nav>
         <nav className="flex items-center gap-2 md:gap-3">
           <h2 className="text-lg md:text-2xl font-mont-light">
@@ -151,13 +151,17 @@ const Profile = () => {
                       <div className="flex items-center gap-2">
                         <span className="w-2.5 h-2.5 bg-green-500 rounded-full mb-0.5"></span>
                         <h2 className="text-base md:text-lg font-mont">
-                          Buscando empleo
+                          Looking for a job
                         </h2>
                       </div>
                       <p className="text-sm md:text-base">
-                        Apasionado por las nuevas tecnologias y su impacto en
+                        Apasionado por las nuevas tecnologías y su impacto en
                         nuestra sociedad, me he dedicado a explorar y aplicar
-                        diversos campos dentro del sector tecnologico...
+                        diversos campos dentro del sector tecnológico. He
+                        explorado varias áreas que abarca el desarrollo de
+                        software tanto en el BackEnd como en el FrontEnd, así
+                        como otras áreas relacionadas con la innovación y el uso
+                        de tecnologías emergentes
                       </p>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import "./App.css";
 import AppRoute from "./Route";
+import { inject } from "@vercel/analytics";
 
 const App = () => {
   return (
@@ -10,4 +11,5 @@ const App = () => {
   );
 };
 
+inject();
 export default App;

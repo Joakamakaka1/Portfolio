@@ -10,7 +10,7 @@ const Projects = () => {
     {
       id: 1,
       nombre: "E-Commerce Platform",
-      descripcion: "Plataforma de comercio electrónico",
+      descripcion: "Lorem ipsum dolor sit amet",
       foto: "imgs/Foto1.png",
       esrb: "imgs/Esrb.png",
       tecnologias: [
@@ -22,7 +22,7 @@ const Projects = () => {
     {
       id: 2,
       nombre: "Task Manager Pro",
-      descripcion: "Gestor de tareas avanzado",
+      descripcion: "Lorem ipsum dolor sit amet",
       foto: "imgs/Foto2.png",
       esrb: "imgs/Esrb.png",
       tecnologias: [
@@ -33,7 +33,7 @@ const Projects = () => {
     {
       id: 3,
       nombre: "Social Network",
-      descripcion: "Red social para desarrolladores",
+      descripcion: "Lorem ipsum dolor sit amet",
       foto: "imgs/Foto3.png",
       esrb: "imgs/Esrb.png",
       tecnologias: [
@@ -44,7 +44,7 @@ const Projects = () => {
     {
       id: 4,
       nombre: "Dashboard Analytics",
-      descripcion: "Panel de análisis en tiempo real",
+      descripcion: "Lorem ipsum dolor sit amet",
       foto: "imgs/Foto4.png",
       esrb: "imgs/Esrb.png",
       tecnologias: [
@@ -101,7 +101,7 @@ const Projects = () => {
               transition={{ duration: 0.2 }}
             />
           </Link>
-          <h1 className="text-xl md:text-3xl font-mont">Mi portfolio</h1>
+          <h1 className="text-xl md:text-3xl font-mont">My profile</h1>
         </nav>
         <nav className="flex items-center gap-2 md:gap-3">
           <h2 className="text-lg md:text-2xl font-mont-light">
@@ -247,7 +247,7 @@ const Projects = () => {
                 transition={{ delay: 0.15 }}
                 className="text-2xl md:text-4xl font-mont"
               >
-                Tecnologias empleadas
+                Technologies
               </motion.h1>
               <motion.div
                 initial={{ opacity: 0 }}
