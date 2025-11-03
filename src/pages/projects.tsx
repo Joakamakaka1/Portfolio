@@ -288,13 +288,19 @@ const Projects = () => {
           <Keyboard className="w-12 h-12 md:w-18 md:h-18" />
         </nav>
         <nav className="flex items-center gap-3 md:gap-6">
-          <button className="flex items-center gap-1 md:gap-2">
+          <button
+            onClick={prevProject}
+            className="flex items-center gap-1 md:gap-2"
+          >
             <span className="w-7 h-7 md:w-8 md:h-8 bg-black text-white rounded-full flex items-center justify-center font-bold cursor-pointer text-base md:text-lg mb-1">
               X
             </span>
             <h3 className="text-lg md:text-2xl font-mont">Back</h3>
           </button>
-          <button className="flex items-center gap-1 md:gap-2">
+          <button
+            onClick={nextProject}
+            className="flex items-center gap-1 md:gap-2"
+          >
             <span className="w-7 h-7 md:w-8 md:h-8 bg-black text-white rounded-full flex items-center justify-center font-bold cursor-pointer text-base md:text-lg mb-1">
               A
             </span>

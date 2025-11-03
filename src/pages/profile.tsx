@@ -73,8 +73,7 @@ const Profile = () => {
 
   return (
     <motion.main
-      className="w-full min-h-screen flex flex-col text-gray-100"
-      style={{ minHeight: "100dvh" }}
+      className="w-full flex flex-col fixed inset-0 text-gray-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -116,7 +115,7 @@ const Profile = () => {
         </nav>
       </header>
 
-      <section className="flex flex-col md:flex-row flex-1 px-4 md:px-10 py-4 md:py-6 gap-4 md:gap-6 overflow-hidden min-h-0">
+      <section className="flex flex-col md:flex-row flex-1 px-4 md:px-10 py-4 md:py-6 gap-4 md:gap-6 overflow-hidden">
         <aside className="flex flex-row md:flex-col gap-1 w-full md:w-80 shrink-0 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
           {options.map((opt, index) => renderOptions(opt, index))}
         </aside>
@@ -144,11 +143,11 @@ const Profile = () => {
 
                   <div className="flex flex-col md:flex-row items-start gap-3">
                     <img
-                      src="imgs/Foto3.png"
+                      src="imgs/Foto1.png"
                       alt="Animal Crossing"
                       className="w-full md:w-72 h-48 md:h-72 object-cover rounded"
                     />
-                    <div className="w-full md:w-xl">
+                    <div className="w-full md:w-xl pl-1">
                       <div className="flex items-center gap-2">
                         <span className="w-2.5 h-2.5 bg-green-500 rounded-full mb-0.5"></span>
                         <h2 className="text-base md:text-lg font-mont">
@@ -167,7 +166,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-2 pt-3 md:pt-4">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-2 pt-3 md:pt-4 pl-1">
                     <p className="font-mont text-sm md:text-base">Github:</p>
                     <a
                       href="https://github.com/Joakamakaka1"
@@ -203,11 +202,11 @@ const Profile = () => {
                     className="flex flex-col md:flex-row items-start gap-3 md:gap-4 pb-3 md:pb-4"
                   >
                     <img
-                      src={`imgs/Foto${num}.png`}
+                      src={`imgs/Foto1.png`}
                       alt={`Estudio ${num}`}
                       className="w-full md:w-64 h-48 md:h-64 object-cover rounded"
                     />
-                    <div className="w-full md:w-3xl">
+                    <div className="w-full md:w-3xl pl-1">
                       <h2 className="font-mont text-lg md:text-xl mt-1">
                         {num === 1
                           ? "Desarrollador de aplicaciones multiplataforma (DAM)"
