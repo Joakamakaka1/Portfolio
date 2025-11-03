@@ -92,7 +92,6 @@ type UseListNavigationOptions = {
 };
 
 export const useListNavigation = ({
-  selectedIndex,
   setSelectedIndex,
   itemCount,
   columns = 1,
